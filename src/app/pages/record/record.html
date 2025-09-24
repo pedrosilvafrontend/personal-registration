@@ -6,7 +6,7 @@
       Cadastrar
     }
   </h3>
-  <mat-stepper orientation="vertical" [linear]="false" #stepper>
+  <mat-stepper orientation="vertical" [linear]="true" #stepper>
     <!-- Etapa 1: Dados Pessoais -->
     <mat-step [stepControl]="personalForm">
       <form [formGroup]="personalForm" class="mt-2">

@@ -5,7 +5,7 @@
       "personal": {
         "fullName": "Pedro",
         "birthDate": "1996-05-06T03:00:00.000Z",
-        "cpf": "01389690199",
+        "cpf": "01234567890",
         "phone": "21312312312"
       },
       "residential": {
@@ -17,27 +17,6 @@
       },
       "professional": {
         "profession": "1",
-        "company": "Globant",
-        "salary": 11400.99
-      }
-    },
-    {
-      "id": "2",
-      "personal": {
-        "fullName": "Pedro",
-        "birthDate": "2001-07-12T03:00:00.000Z",
-        "cpf": "01389690199",
-        "phone": "21312312312"
-      },
-      "residential": {
-        "address": "Rua Frei José dos Inocentes",
-        "neighborhood": "Centro",
-        "postalCode": "21314324",
-        "city": "Manaus",
-        "state": "AM"
-      },
-      "professional": {
-        "profession": "6",
         "company": "Globant",
         "salary": 11400.99
       }
