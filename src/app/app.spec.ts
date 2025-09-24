@@ -59,6 +59,6 @@ describe('App', () => {
   it('should render record component when navigating to "/record/:id"', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/record/1');
-    expect(screen.getByText('Cadastrar')).toBeTruthy();
+    expect(screen.getByText('Editar')).toBeTruthy();
   });
 });

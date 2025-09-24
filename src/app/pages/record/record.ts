@@ -58,11 +58,6 @@ export class Record implements OnInit, OnDestroy {
     });
   }
 
-  // private syncStoreEffect = effect(() => {
-  //   this.professions = this.professionsStore.professions();
-  //   this.states = this.statesStore.states();
-  // });
-
   personalForm = this._fb.group({
     fullName: ['', [Validators.required, Validators.minLength(3)]],
     birthDate: ['', Validators.required],

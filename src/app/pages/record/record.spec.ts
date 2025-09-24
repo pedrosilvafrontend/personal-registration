@@ -10,6 +10,9 @@ import { MY_DATE_FORMATS } from '../../app.config';
 import { ptBR } from  'date-fns/locale';
 import { of } from 'rxjs';
 import { routes } from '../../app.routes';
+import { ProfessionsStore } from '@core/stores/professions.store';
+import { StatesStore } from '@core/stores/states.store';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const activatedRouteProvide = {
   provide: ActivatedRoute,
@@ -22,6 +25,20 @@ const activatedRouteProvide = {
       }
     }
 }
+
+const professionsStoreMock = {
+  professions: jest.fn().mockReturnValue([]),
+  loading: jest.fn().mockReturnValue(false),
+  error: jest.fn().mockReturnValue(null),
+  loadAll: jest.fn()
+};
+
+const statesStoreMock = {
+  states: jest.fn().mockReturnValue([]),
+  loading: jest.fn().mockReturnValue(false),
+  error: jest.fn().mockReturnValue(null),
+  loadAll: jest.fn()
+};
 
 describe('Record', () => {
   let component: Record;
@@ -59,6 +76,8 @@ describe('Record', () => {
         RouterModule.forRoot(routes)
       ],
       providers: [
+        { provide: ProfessionsStore, useValue: professionsStoreMock },
+        { provide: StatesStore, useValue: statesStoreMock },
         activatedRouteProvide,
         {
           provide: HttpClient, useValue: {
@@ -69,6 +88,7 @@ describe('Record', () => {
           }
         },
         provideDateFnsAdapter(),
+        { provide: MatSnackBar, useValue: { open: jest.fn() } },
         { provide: MAT_DATE_LOCALE, useValue: ptBR },
         { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
         provideNgxMask()
