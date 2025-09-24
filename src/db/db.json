@@ -1,0 +1,307 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "personal": {
+        "fullName": "Pedro",
+        "birthDate": "1996-05-06T03:00:00.000Z",
+        "cpf": "01389690199",
+        "phone": "21312312312"
+      },
+      "residential": {
+        "address": "Praça Tiradentes",
+        "neighborhood": "Centro",
+        "postalCode": "12312323",
+        "city": "Curitiba",
+        "state": "PR"
+      },
+      "professional": {
+        "profession": "1",
+        "company": "Globant",
+        "salary": 11400.99
+      }
+    },
+    {
+      "id": "2",
+      "personal": {
+        "fullName": "Pedro",
+        "birthDate": "2001-07-12T03:00:00.000Z",
+        "cpf": "01389690199",
+        "phone": "21312312312"
+      },
+      "residential": {
+        "address": "Rua Frei José dos Inocentes",
+        "neighborhood": "Centro",
+        "postalCode": "21314324",
+        "city": "Manaus",
+        "state": "AM"
+      },
+      "professional": {
+        "profession": "6",
+        "company": "Globant",
+        "salary": 11400.99
+      }
+    }
+  ],
+  "professions": [
+    {
+      "id": "1",
+      "name": "Desenvolvedor de Software"
+    },
+    {
+      "id": "2",
+      "name": "Engenheiro Civil"
+    },
+    {
+      "id": "3",
+      "name": "Médico"
+    },
+    {
+      "id": "4",
+      "name": "Enfermeiro"
+    },
+    {
+      "id": "5",
+      "name": "Professor"
+    },
+    {
+      "id": "6",
+      "name": "Advogado"
+    },
+    {
+      "id": "7",
+      "name": "Designer Gráfico"
+    },
+    {
+      "id": "8",
+      "name": "Arquiteto"
+    },
+    {
+      "id": "9",
+      "name": "Analista de Dados"
+    },
+    {
+      "id": "10",
+      "name": "Farmacêutico"
+    }
+  ],
+  "states": [
+    {
+      "acronym": "AC",
+      "name": "Acre",
+      "id": "f711"
+    },
+    {
+      "acronym": "AL",
+      "name": "Alagoas",
+      "id": "6bc0"
+    },
+    {
+      "acronym": "AP",
+      "name": "Amapá",
+      "id": "fc78"
+    },
+    {
+      "acronym": "AM",
+      "name": "Amazonas",
+      "id": "6f8e"
+    },
+    {
+      "acronym": "BA",
+      "name": "Bahia",
+      "id": "edf0"
+    },
+    {
+      "acronym": "CE",
+      "name": "Ceará",
+      "id": "da9a"
+    },
+    {
+      "acronym": "DF",
+      "name": "Distrito Federal",
+      "id": "de07"
+    },
+    {
+      "acronym": "ES",
+      "name": "Espírito Santo",
+      "id": "e59e"
+    },
+    {
+      "acronym": "GO",
+      "name": "Goiás",
+      "id": "0d97"
+    },
+    {
+      "acronym": "MA",
+      "name": "Maranhão",
+      "id": "de73"
+    },
+    {
+      "acronym": "MT",
+      "name": "Mato Grosso",
+      "id": "2b99"
+    },
+    {
+      "acronym": "MS",
+      "name": "Mato Grosso do Sul",
+      "id": "9f68"
+    },
+    {
+      "acronym": "MG",
+      "name": "Minas Gerais",
+      "id": "9bfd"
+    },
+    {
+      "acronym": "PA",
+      "name": "Pará",
+      "id": "18d0"
+    },
+    {
+      "acronym": "PB",
+      "name": "Paraíba",
+      "id": "923d"
+    },
+    {
+      "acronym": "PR",
+      "name": "Paraná",
+      "id": "f679"
+    },
+    {
+      "acronym": "PE",
+      "name": "Pernambuco",
+      "id": "5aa0"
+    },
+    {
+      "acronym": "PI",
+      "name": "Piauí",
+      "id": "92de"
+    },
+    {
+      "acronym": "RJ",
+      "name": "Rio de Janeiro",
+      "id": "6edb"
+    },
+    {
+      "acronym": "RN",
+      "name": "Rio Grande do Norte",
+      "id": "4486"
+    },
+    {
+      "acronym": "RS",
+      "name": "Rio Grande do Sul",
+      "id": "664c"
+    },
+    {
+      "acronym": "RO",
+      "name": "Rondônia",
+      "id": "7215"
+    },
+    {
+      "acronym": "RR",
+      "name": "Roraima",
+      "id": "50cf"
+    },
+    {
+      "acronym": "SC",
+      "name": "Santa Catarina",
+      "id": "9417"
+    },
+    {
+      "acronym": "SP",
+      "name": "São Paulo",
+      "id": "a655"
+    },
+    {
+      "acronym": "SE",
+      "name": "Sergipe",
+      "id": "16fe"
+    },
+    {
+      "acronym": "TO",
+      "name": "Tocantins",
+      "id": "0652"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "01001-000",
+      "postalCode": "01001-000",
+      "address": "Praça da Sé",
+      "neighborhood": "Sé",
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    {
+      "id": "20040-020",
+      "postalCode": "20040-020",
+      "address": "Rua da Quitanda",
+      "neighborhood": "Centro",
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    {
+      "id": "30140-071",
+      "postalCode": "30140-071",
+      "address": "Avenida do Contorno",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    },
+    {
+      "id": "40140-110",
+      "postalCode": "40140-110",
+      "address": "Avenida Oceânica",
+      "neighborhood": "Barra",
+      "city": "Salvador",
+      "state": "BA"
+    },
+    {
+      "id": "80010-000",
+      "postalCode": "80010-000",
+      "address": "Praça Tiradentes",
+      "neighborhood": "Centro",
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    {
+      "id": "69005-070",
+      "postalCode": "69005-070",
+      "address": "Rua Frei José dos Inocentes",
+      "neighborhood": "Centro",
+      "city": "Manaus",
+      "state": "AM"
+    },
+    {
+      "id": "60060-120",
+      "postalCode": "60060-120",
+      "address": "Avenida Dom Manuel",
+      "neighborhood": "Centro",
+      "city": "Fortaleza",
+      "state": "CE"
+    },
+    {
+      "id": "73301-200",
+      "postalCode": "73301-200",
+      "address": "Quadra 1 Conjunto B",
+      "neighborhood": "Sobradinho",
+      "city": "Brasília",
+      "state": "DF"
+    },
+    {
+      "id": "88010-200",
+      "postalCode": "88010-200",
+      "address": "Rua Conselheiro Mafra",
+      "neighborhood": "Centro",
+      "city": "Florianópolis",
+      "state": "SC"
+    },
+    {
+      "id": "96010-160",
+      "postalCode": "96010-160",
+      "address": "Rua General Neto",
+      "neighborhood": "Centro",
+      "city": "Pelotas",
+      "state": "RS"
+    }
+  ]
+}

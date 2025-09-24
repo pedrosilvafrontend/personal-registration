@@ -1,0 +1,171 @@
+<div class="container">
+  <h3 class="my-4">
+    @if (id) {
+      Editar
+    } @else {
+      Cadastrar
+    }
+  </h3>
+  <mat-stepper orientation="vertical" [linear]="false" #stepper>
+    <!-- Etapa 1: Dados Pessoais -->
+    <mat-step [stepControl]="personalForm">
+      <form [formGroup]="personalForm" class="mt-2">
+        <ng-template matStepLabel>1. Dados Pessoais</ng-template>
+
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Nome completo</mat-label>
+              <input matInput placeholder="Ex.: João da Silva" formControlName="fullName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Data de nascimento</mat-label>
+              <input matInput
+                     [matDatepicker]="picker"
+                     placeholder="MM/DD/YYYY"
+                     formControlName="birthDate"
+                     (click)="picker.open()"
+                     (focus)="picker.open()"
+                     readonly required>
+              @if (!personalForm.controls.birthDate.value) {
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              } @else {
+                <button
+                  matIconButton
+                  matSuffix
+                  (click)="personalForm.controls.birthDate.setValue(null)"
+                  [attr.aria-label]="'Apagar data de nascimento'"
+                >
+                  <mat-icon>clear</mat-icon>
+                </button>
+              }
+              <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>CPF</mat-label>
+              <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Telefone</mat-label>
+              <input matInput formControlName="phone" mask="(00) 0000-0000||(00) 00000-0000" placeholder="(00) 00000-0000" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+          <button matButton color="primary" matStepperNext>Próximo</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Etapa 2: Informações Residenciais -->
+    <mat-step [stepControl]="residentialForm">
+      <form [formGroup]="residentialForm" class="mt-2">
+        <ng-template matStepLabel>2. Informações Residenciais</ng-template>
+
+        <div class="row">
+
+          <div class="col-md-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>CEP</mat-label>
+              <input matInput formControlName="postalCode" mask="00000-000" placeholder="00000-000" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-9">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Endereço</mat-label>
+              <input matInput formControlName="address" placeholder="Rua, número e complemento" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Bairro</mat-label>
+              <input matInput formControlName="neighborhood" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Cidade</mat-label>
+              <input matInput formControlName="city" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="state" required>
+                @for (option of states; track option) {
+                  <mat-option [value]="option.acronym">{{ option.name }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+          <button matButton matStepperPrevious>Voltar</button>
+          <button matButton color="primary" matStepperNext>Próximo</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Etapa 3: Informações Profissionais -->
+    <mat-step [stepControl]="professionalForm">
+      <form [formGroup]="professionalForm" class="mt-2">
+        <ng-template matStepLabel>3. Informações Profissionais</ng-template>
+
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Profissão</mat-label>
+              <mat-select formControlName="profession" required>
+                @for (option of professions; track option) {
+                  <mat-option [value]="option.id">{{ option.name }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Empresa</mat-label>
+              <input matInput formControlName="company" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Salário</mat-label>
+              <input matInput
+                     mask="separator.2"
+                     [thousandSeparator]="'.'"
+                     [decimalMarker]="','"
+                     prefix="R$ "
+                     type="text"
+                     [dropSpecialCharacters]="true"
+                     formControlName="salary"
+                     placeholder="0.000,00"
+                     required
+              >
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+          <button matButton matStepperPrevious>Voltar</button>
+          <button mat-button color="primary" type="button" (click)="submit()">Salvar</button>
+          @if (!id) {
+            <button mat-button type="button" (click)="stepper.reset()">Limpar</button>
+          }
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</div>
