@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, effect, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,15 +9,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CpfValidator } from '@validators';
 import { MatIcon } from '@angular/material/icon';
 import { AddressService } from '@core/services/address.service';
-import { firstValueFrom, Subject, take, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
 import { Profession, ResidentialInfo } from '@core/models';
 import { DataService } from '@core/services/data.service';
 import { DataInfo } from '@core/models/data-info.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProfessionsService } from '@core/services/professions.service';
+import { ProfessionsStore } from '@core/stores/professions.store';
 import { MatSelectModule } from '@angular/material/select';
-import { StatesService } from '@core/services/states.service';
+import { StatesStore } from '@core/stores/states.store';
 import { State } from '@core/models/state.interface';
 
 @Component({
@@ -41,8 +41,8 @@ export class Record implements OnInit, OnDestroy {
   private _fb = inject(FormBuilder);
   private addressService = inject(AddressService);
   private dataService = inject(DataService);
-  private professionsService = inject(ProfessionsService);
-  private statesService = inject(StatesService);
+  private professionsStore = inject(ProfessionsStore);
+  private statesStore = inject(StatesStore);
   private destroySubject = new Subject<void>();
   private snack = inject(MatSnackBar);
   private activatedRoute = inject(ActivatedRoute);
@@ -50,6 +50,18 @@ export class Record implements OnInit, OnDestroy {
   public id: string | null = null;
   public professions: Profession[] = [];
   public states: State[] = [];
+
+  constructor() {
+    effect(() => {
+      this.professions = this.professionsStore.professions();
+      this.states = this.statesStore.states();
+    });
+  }
+
+  // private syncStoreEffect = effect(() => {
+  //   this.professions = this.professionsStore.professions();
+  //   this.states = this.statesStore.states();
+  // });
 
   personalForm = this._fb.group({
     fullName: ['', [Validators.required, Validators.minLength(3)]],
@@ -110,9 +122,9 @@ export class Record implements OnInit, OnDestroy {
     });
   }
 
-  async ngOnInit() {
-    this.professions = await firstValueFrom(this.professionsService.getAll());
-    this.states = await firstValueFrom(this.statesService.getAll());
+  ngOnInit() {
+    this.professionsStore.loadAll();
+    this.statesStore.loadAll();
 
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id) {
