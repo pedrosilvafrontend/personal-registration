@@ -1,4 +1,4 @@
-# CadastroPessoal
+# Personal Registration App
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
 
@@ -7,24 +7,16 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server, run:
 
 ```bash
-ng serve
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+On `npm start` Auto start and serving api with [`json-server`](https://www.npmjs.com/package/json-server/v/0.17.4)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+## Unit tests coverage
+![coverage.png](coverage.png)
 
 ## Building
 
